@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StatusBar } from 'react-native';
 import { useState } from 'react';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { COLORS, SIZES } from './src/constants/theme';
@@ -29,7 +29,11 @@ const slides = [
 ];
 
 const App = () => {
-  const [showHomePage, setShowHomePage] = useState(false);
+  const [showHomePage, setShowHomePage] = useState(true);
+
+ StatusBar.setBarStyle('light-content', true);
+
+
   const buttonLabel = (label) => { 
     return (
       <View style={{padding: 12}}>
