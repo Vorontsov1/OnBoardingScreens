@@ -2,6 +2,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { COLORS, SIZES } from './src/constants/theme';
+import Router  from './src/router/Router';
 
 const slides = [
   {
@@ -98,13 +99,7 @@ if (!showHomePage) {
 }
 
   return (
-    <View style={{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}>
-      <Text>Home Screen</Text>
-    </View>
+    <Router />
   );
 }
 
