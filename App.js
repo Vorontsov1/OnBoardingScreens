@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { COLORS, SIZES } from './src/constants/theme';
@@ -41,18 +41,20 @@ const App = () => {
     )
   } 
 
+
 if (!showHomePage) {
   return (
     <AppIntroSlider
       data={slides}
       renderItem={({ item }) => {
         return (
-          <View style={{
-            flex: 1,
-            alignItems: 'center',
-            padding: 15,
-            paddingTop: 100,
-          }}>
+          <View
+            style={{
+              flex: 1,
+              alignItems: 'center',
+              padding: 15,
+              paddingTop: 100,
+            }}>
             <Image
               source={item.image}
               style={{
@@ -61,25 +63,32 @@ if (!showHomePage) {
               }}
               resizeMode="contain"
             />
-            <Text style={{
-              fontWeight: 'bold',
-              fontSize: SIZES.h1,
-              color: COLORS.primary,
-            }}>{item.title}</Text>
+            <Text
+              style={{
+                fontWeight: 'bold',
+                fontSize: SIZES.h1,
+                color: COLORS.primary,
+              }}>
+              {item.title}
+            </Text>
 
-            <Text style={{
-              textAlign: 'center',
-              fontSize: SIZES.body,
-              color: COLORS.title,
-            }}>{item.description}</Text>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontSize: SIZES.body,
+                color: COLORS.title,
+              }}>
+              {item.description}
+            </Text>
           </View>
-        )
+        );
       }}
       activeDotStyle={{
         backgroundColor: COLORS.primary,
         width: 30,
       }}
       showSkipButton
+      renderPrevButton={() => buttonLabel('Previous')}
       renderNextButton={() => buttonLabel('Next')}
       renderSkipButton={() => buttonLabel('Skip')}
       renderDoneButton={() => buttonLabel('Done')}
